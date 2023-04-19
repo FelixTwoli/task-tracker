@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->integer('id', 12);
-            $table->string('email_address', 100)->unique();
+        Schema::create('user_tasks', function (Blueprint $table) {
+            $table->id();
+            $table->integer('email_address');
             $table->string('password', 100);
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
             $table->timestamp('deleted_at');
-
-
         });
     }
 
