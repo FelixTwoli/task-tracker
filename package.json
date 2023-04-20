@@ -1,0 +1,23 @@
+{
+  "name": "@felix/task-tracker-monorepo",
+  "version": "1.0.0",
+  "description": "This is a monorepo for a simple task tracker application. It contains the following projects: - `api` - a PHP Laravel REST API for the task tracker - `web` - a Vue 3 web application for the task tracker consuming the API",
+  "scripts": {
+    "api:install": "cd api && composer install",
+    "api:serve": "cd api && php artisan serve",
+    "web:install": "cd web && npm install",
+    "web:serve": "cd web && npm run serve",
+    "web:build": "cd web && npm run build",
+    "start": "npm run api:serve & npm run web:serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelixTwoli/task-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelixTwoli/task-tracker/issues"
+  },
+  "homepage": "https://github.com/FelixTwoli/task-tracker#readme"
+}
