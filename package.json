@@ -17,11 +17,14 @@
   "author": {
     "email": "felixtwoli21@gmail.com",
     "name": "Felix Twoli",
-    "url": "https://github.com/FelixTwoli" 
+    "url": "https://github.com/FelixTwoli"
   },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FelixTwoli/task-tracker/issues"
   },
-  "homepage": "https://github.com/FelixTwoli/task-tracker#readme"
+  "homepage": "https://github.com/FelixTwoli/task-tracker#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
 }
