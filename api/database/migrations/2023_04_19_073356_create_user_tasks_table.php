@@ -12,17 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_tasks', function (Blueprint $table) {
-            $table->integer('id',true);
-            $table->integer('user_id');
-            $table->integer('task_id');
+            $table->integer('id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('task_id');
             $table->timestamp('due_date');
             $table->timestamp('start_at');
             $table->timestamp('end_at');
             $table->string('remarks', 100);
-            $table->integer('status_id');
+            $table->unsignedBigInteger('status_id');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
-            $table->timestamp('deleted_at');
+            $table->softDeletes();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('task_id')->references('id')->on('tasks');
+            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 

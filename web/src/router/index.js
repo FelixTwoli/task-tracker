@@ -4,6 +4,7 @@ import UserList from "@/components/UserList.vue";
 import TaskList from "@/components/TaskList.vue";
 import StatusList from "@/components/StatusList.vue";
 import UserTaskList from "@/components/UserTaskList.vue";
+import LoginForm from "@/components/LoginForm.vue";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     name: "UserTaskList",
     component: UserTaskList,
   },
+  // {
+  //   path: "/",
+  //   name: "LoginForm",
+  //   component: LoginForm,
+  // }
 ];
 
 const router = createRouter({

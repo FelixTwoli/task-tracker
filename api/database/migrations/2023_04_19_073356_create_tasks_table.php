@@ -19,9 +19,7 @@ return new class extends Migration
             $table->integer('status_id');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
-            $table->timestamp('deleted_at');
-
-
+            $table->softDeletes();
         });
     }
 
@@ -33,5 +31,3 @@ return new class extends Migration
         Schema::dropIfExists('tasks');
     }
 };
-
-

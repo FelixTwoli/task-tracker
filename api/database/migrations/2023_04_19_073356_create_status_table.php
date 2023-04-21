@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('status', function (Blueprint $table) {
-            $table->integer('id', 12);
+            $table->id();
             $table->string('name', 50);
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
-            $table->timestamp('deleted_at');
-
+            $table->softDeletes();
         });
     }
 
@@ -29,4 +28,3 @@ return new class extends Migration
         Schema::dropIfExists('status');
     }
 };
-

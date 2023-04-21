@@ -6,7 +6,7 @@
     "api:install": "cd api && composer install",
     "api:serve": "cd api && php artisan serve",
     "web:install": "cd web && npm install",
-    "web:serve": "cd web && npm run serve",
+    "web:serve": "cd web && npm run dev",
     "web:build": "cd web && npm run build",
     "start": "npm run api:serve & npm run web:serve"
   },
@@ -14,7 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/FelixTwoli/task-tracker.git"
   },
-  "author": "",
+  "author": {
+    "email": "felixtwoli21@gmail.com",
+    "name": "Felix Twoli",
+    "url": "https://github.com/FelixTwoli" 
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FelixTwoli/task-tracker/issues"
