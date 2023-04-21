@@ -27,7 +27,10 @@
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
     <p>
-      Don't have an account? <router-link to="/signup">Sign Up</router-link>
+      Don't have an account?
+      <router-link to="/signup" class="btn btn-link float-left">
+        Sign Up
+      </router-link>
     </p>
   </div>
 </template>
@@ -47,13 +50,15 @@ export default {
       console.log({ email: this.email, password: this.password });
 
       try {
-        const response = await axiosInstance.post("/login", {
-          email: this.email_address,
+        const response = await axiosInstance.post("/auth/login", {
+          email: this.email,
           password: this.password,
         });
 
-        localStorage.setItem("token", response.data.token);
-        this.$router.push("/");
+        console.log(response.data);
+
+        localStorage.setItem("session", JSON.stringify(response.data));
+        this.$router.push("/tasks");
       } catch (error) {
         console.error(error.message);
       }

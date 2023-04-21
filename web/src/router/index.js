@@ -5,18 +5,41 @@ import TaskList from "@/components/TaskList.vue";
 import StatusList from "@/components/StatusList.vue";
 import UserTaskList from "@/components/UserTaskList.vue";
 import LoginForm from "@/components/LoginForm.vue";
+import SignupForm from "@/components/SignupForm.vue";
+import Welcome from "@/components/Welcome.vue";
+import path from "path";
 
 const routes = [
+  {
+    path: "/",
+    name: "Welcome",
+    component: Welcome,
+  },
+
+  {
+    path: "/signup",
+    name: "SignupForm",
+    component: SignupForm,
+  },
+
+  {
+    path: "/login",
+    name: "LoginForm",
+    component: LoginForm,
+  },
+
   {
     path: "/users",
     name: "UserList",
     component: UserList,
   },
+
   {
     path: "/tasks",
     name: "TaskList",
     component: TaskList,
   },
+
   {
     path: "/status",
     name: "StatusList",
@@ -27,11 +50,6 @@ const routes = [
     name: "UserTaskList",
     component: UserTaskList,
   },
-  // {
-  //   path: "/",
-  //   name: "LoginForm",
-  //   component: LoginForm,
-  // }
 ];
 
 const router = createRouter({

@@ -3,6 +3,17 @@
     <h2>Sign Up</h2>
     <form @submit.prevent="submitForm">
       <div class="form-group">
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          v-model="name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
         <label for="email">Email</label>
         <input
           type="email"
@@ -29,12 +40,13 @@
           id="confirmPassword"
           class="form-control"
           v-model="confirmPassword"
-          required
-        />
+          required />
       </div>
       <button type="submit" class="btn btn-primary">Sign Up</button>
     </form>
-    <p>Already have an account? <router-link to="/login">Login</router-link></p>
+    <p>Already have an account? <router-link  to="/login" class="btn btn-link float-right d-flex">
+              Login
+            </router-link></p>
   </div>
 </template>
 
@@ -44,6 +56,7 @@ import axiosInstance from "../api/axios-instance";
 export default {
   data() {
     return {
+      name: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -52,13 +65,16 @@ export default {
   methods: {
     async submitForm() {
       try {
-        const response = await axiosInstance.post("/register", {
+        const response = await axiosInstance.post("/auth/register", {
+          name: this.name,
           email: this.email,
           password: this.password,
           password_confirmation: this.confirmPassword,
         });
-        localStorage.setItem("token", response.data.token);
-        this.$router.push("/");
+
+        console.log(response.data);
+
+        this.$router.push("/dashboard");
       } catch (error) {
         console.error(error);
       }
