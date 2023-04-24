@@ -6,7 +6,7 @@ import UserTaskList from "@/components/UserTaskList.vue";
 import LoginForm from "@/components/LoginForm.vue";
 import SignupForm from "@/components/SignupForm.vue";
 import Welcome from "@/components/Welcome.vue";
-
+import { AuthService } from "@/services/auth";
 
 const routes = [
   {
@@ -32,42 +32,43 @@ const routes = [
   // },
 
   {
-    path: '/create-task',
-    name: 'CreateTask',
-    component: () => import('@/components/CreateTask.vue'),
-    meta: { requiresAuth: true}
+    path: "/create-task",
+    name: "CreateTask",
+    component: () => import("@/components/CreateTask.vue"),
+    meta: { requiresAuth: true },
   },
+  
   {
     path: "/users",
     name: "UserList",
     component: UserList,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: "/tasks",
     name: "TaskList",
     component: TaskList,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: "/status",
     name: "StatusList",
     component: StatusList,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: "/user-tasks",
     name: "UserTaskList",
     component: UserTaskList,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
 ];
 
@@ -77,11 +78,16 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const currentUser = localStorage.getItem("user");
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const isLoggedIn = AuthService.isLoggedIn();
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  const publicRoutes = ["LoginForm", "SignupForm", "Welcome"];
 
-  if (requiresAuth && !currentUser) {
-    next("/");
+  console.log({ to });
+
+  if (requiresAuth && !isLoggedIn) {
+    next("/login");
+  } else if (isLoggedIn && publicRoutes.includes(to.name)) {
+    next("/tasks");
   } else {
     next();
   }
