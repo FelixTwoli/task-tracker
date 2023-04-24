@@ -24,7 +24,9 @@
           required
         />
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <div class="d-flex justify-content-center p-2">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
     </form>
     <p>
       Don't have an account?

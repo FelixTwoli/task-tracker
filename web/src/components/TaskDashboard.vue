@@ -1,8 +1,10 @@
-<template>
+<!-- <template>
   <div class="row">
     <div class="col-md-12">
-      <h2>Tasks Dashboard</h2>
-      
+      <h2>Task Dashboard</h2>
+      <router-link to="/tasks/create" class="btn btn-primary mb-3">
+        Add Task
+      </router-link>
 
       <table class="table">
         <thead>
@@ -38,9 +40,6 @@
         </tbody>
       </table>
     </div>
-    <router-link to="/tasks/create" class="btn btn-primary mb-3">
-        Add Task
-      </router-link>
   </div>
 </template>
 
@@ -48,7 +47,7 @@
 import axios from "axios";
 
 export default {
-  name: "TaskList",
+  name: "TaskDashboard",
   data() {
     return {
       tasks: [],
@@ -76,6 +75,8 @@ export default {
     },
   },
 };
-</script>
+</script> 
+
+
 
 

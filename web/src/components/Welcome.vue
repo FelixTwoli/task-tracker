@@ -10,8 +10,7 @@
         data-target="#navbarNav"
         aria-controls="navbarNav"
         aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -31,7 +30,7 @@
 
     <!-- Main Content -->
     <div class="container mt-5">
-      <h1>Welcome to Task Management</h1>
+      <h1>Welcome to Task Tracker</h1>
       <p>
         This is a task management application that helps you manage your daily
         tasks easily.
