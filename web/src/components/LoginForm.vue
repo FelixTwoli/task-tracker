@@ -63,6 +63,7 @@ export default {
         this.$router.push("/tasks");
       } catch (error) {
         console.error(error.message);
+
       }
     },
   },
