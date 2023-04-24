@@ -37,7 +37,7 @@ const routes = [
     component: () => import("@/components/CreateTask.vue"),
     meta: { requiresAuth: true },
   },
-  
+
   {
     path: "/users",
     name: "UserList",
@@ -46,6 +46,16 @@ const routes = [
       requiresAuth: true,
     },
   },
+
+  {
+    path: '/taskform',
+    name: 'TaskForm',
+    component: () => import('@/components/TaskForm.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+
   {
     path: "/tasks",
     name: "TaskList",
