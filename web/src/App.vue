@@ -12,7 +12,7 @@
         </div>
 
         <div v-if="isLoggedIn" class="mt-3">
-          <router-link to="/create" class="btn btn-primary btn-block"> 
+          <router-link to="/taskform" class="btn btn-primary btn-block">
             Create Task
           </router-link>
         </div>
@@ -26,9 +26,7 @@ import SignUpForm from "@/components/SignUpForm.vue";
 import LoginForm from "@/components/LoginForm.vue";
 import TaskList from "@/components/TaskList.vue";
 import { AuthService } from "@/services/auth";
-import { CreateTask} from "@/components/CreateTask.vue";
-
-// import { Dashboard } from "@/components/Dashboard.vue";
+import CreateTask from "@/components/CreateTask.vue";
 
 export default {
   components: {
@@ -36,8 +34,7 @@ export default {
     TaskList,
     LoginForm,
     CreateTask,
-   
-    // Dashboard,
+
   },
 
   data() {
@@ -47,7 +44,7 @@ export default {
     };
   },
   methods: {
-    // TODO: implement authentication logic and set loggedIn accordingly
+    
   },
 };
 </script>
